@@ -1,0 +1,80 @@
+﻿const API_BASE = "http://localhost:8000/api";
+
+async function request(endpoint, options = {}) {
+  const config = {
+    ...options,
+    credentials: options.credentials ?? "include",
+    headers: {
+      "Content-Type": "application/json",
+      ...options.headers,
+    },
+  };
+
+  if (
+    config.body &&
+    typeof config.body === "object" &&
+    !(config.body instanceof FormData)
+  ) {
+    config.body = JSON.stringify(config.body);
+  }
+
+  const response = await fetch(`${API_BASE}${endpoint}`, config);
+
+  if (response.status === 204) return null;
+
+  const data = await response.json().catch(() => ({
+    detail: "Server error",
+  }));
+
+  if (!response.ok) {
+    throw new Error(data.detail || "Something went wrong");
+  }
+
+  return data;
+}
+
+export const api = {
+  login: (creds) =>
+    request("/auth/login", { method: "POST", body: creds }),
+
+  register: (data) =>
+    request("/auth/register", { method: "POST", body: data }),
+
+  getMe: () => request("/auth/me"),
+
+  logout: () => request("/auth/logout", { method: "POST" }),
+
+  getProfile: () => request("/student/profile"),
+
+  saveProfile: (data) =>
+    request("/student/profile", { method: "POST", body: data }),
+
+  getDashboard: () => request("/student/dashboard"),
+
+  getTasks: () => request("/student/tasks"),
+
+  createTask: (data) =>
+    request("/student/tasks", { method: "POST", body: data }),
+
+  updateTask: (id, data) =>
+    request(`/student/tasks/${id}`, { method: "PUT", body: data }),
+
+  deleteTask: (id) =>
+    request(`/student/tasks/${id}`, { method: "DELETE" }),
+
+  getSessions: () => request("/student/sessions"),
+
+  createSession: (data) =>
+    request("/student/sessions", { method: "POST", body: data }),
+
+  deleteSession: (id) =>
+    request(`/student/sessions/${id}`, { method: "DELETE" }),
+
+  getSkills: () => request("/student/skills"),
+
+  createSkill: (data) =>
+    request("/student/skills", { method: "POST", body: data }),
+
+  deleteSkill: (id) =>
+    request(`/student/skills/${id}`, { method: "DELETE" }),
+};

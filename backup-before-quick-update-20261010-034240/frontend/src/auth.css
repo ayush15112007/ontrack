@@ -1,0 +1,24 @@
+﻿body { margin: 0; font-family: 'Inter', sans-serif; background: #0f172a; color: #f8fafc; }
+.auth-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); padding: 20px; }
+.auth-card { background: rgba(30, 41, 59, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 32px; border-radius: 16px; width: 100%; max-width: 440px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4); }
+.auth-header h1 { margin: 0 0 4px 0; font-size: 28px; color: #38bdf8; text-align: center; }
+.auth-header p { margin: 0 0 20px 0; font-size: 13px; color: #94a3b8; text-align: center; }
+.auth-form { display: flex; flex-direction: column; gap: 12px; }
+.auth-form h3 { margin: 0 0 8px 0; font-size: 18px; color: #f8fafc; text-align: center; }
+.input-group { display: flex; flex-direction: column; gap: 4px; }
+.input-group label { font-size: 12px; color: #cbd5e1; font-weight: 500; }
+.input-group input, .input-group textarea, .input-group select { padding: 10px 12px; background: #0f172a; border: 1px solid #475569; border-radius: 8px; color: #fff; font-size: 14px; outline: none; }
+.input-group input:focus { border-color: #38bdf8; }
+.primary-btn { width: 100%; padding: 12px; background: #0284c7; color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 8px; font-size: 14px; }
+.primary-btn:hover { background: #0369a1; }
+.error-banner { background: rgba(239, 68, 68, 0.2); border: 1px solid #ef4444; color: #fca5a5; padding: 10px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; text-align: center; }
+.success-banner { background: rgba(34, 197, 94, 0.2); border: 1px solid #22c55e; color: #86efac; padding: 10px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; text-align: center; }
+.switch-text { margin-top: 12px; text-align: center; font-size: 13px; color: #94a3b8; }
+.switch-text span { color: #38bdf8; cursor: pointer; font-weight: 600; }
+.switch-text span:hover { text-decoration: underline; }
+.role-logins { margin-top: 20px; border-top: 1px solid #334155; padding-top: 16px; }
+.role-logins p { font-size: 12px; color: #94a3b8; margin-bottom: 8px; text-align: center; }
+.role-buttons { display: flex; gap: 8px; }
+.role-btn { flex: 1; background: #1e293b; border: 1px solid #475569; padding: 8px; color: #cbd5e1; border-radius: 6px; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.role-btn:hover { background: #334155; color: #fff; }
+.auth-loading { display: flex; justify-content: center; align-items: center; height: 100vh; background: #0f172a; color: #38bdf8; font-size: 18px; font-weight: 600; }
